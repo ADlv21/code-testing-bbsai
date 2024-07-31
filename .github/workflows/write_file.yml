@@ -1,0 +1,28 @@
+name: Write to File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  write-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Write to file
+        run: |
+          echo "This is a line of text" >> example.txt
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add example.txt
+          git commit -m "Add line of text to example.txt"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
