@@ -1,0 +1,8 @@
+************* Module main
+dev/main.py:2:0: C0304: Final newline missing (missing-final-newline)
+dev/main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+dev/main.py:1:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 0.00/10
+
