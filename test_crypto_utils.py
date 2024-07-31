@@ -3,7 +3,7 @@ import crypto_utils as module_0
 
 
 def test_case_0():
-    str_0 = "k"
+    str_0 = "l"
     with pytest.raises(RuntimeError):
         module_0.decode_base64_to_excel(str_0)
 
