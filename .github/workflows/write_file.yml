@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name 'Adwait Gawade'
           git config --global user.email 'adwaitg02@gmail.com'
-          git add example.txt
+          git add pylint-report.txt bandit-report.txt
           git commit -m "Add line of text to example.txt [skip ci]"
           git push
         env:
