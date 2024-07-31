@@ -26,8 +26,8 @@ jobs:
       - name: Run pylint
         if: contains(github.event.head_commit.message, '[skip ci]') == false
         run: |
-          cd ..
           pylint **/*.py > report-pylint.txt || true
+          find . -name "*.py" | xargs pylint > pylint-report-find-all.txt || true
 
       - name: Run bandit
         if: contains(github.event.head_commit.message, '[skip ci]') == false
@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name 'Adwait Gawade'
           git config --global user.email 'adwaitg02@gmail.com'
-          git add report-pylint.txt report-bandit.txt
+          git add report-pylint.txt report-bandit.txt pylint-report-find-all.txt
           git commit -m "Add line of text to example.txt [skip ci]"
           git push
         env:
