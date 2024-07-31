@@ -13,16 +13,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Get last commit message
+        id: last-commit
+        run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
+
       - name: Write to file
+        if: contains(github.event.head_commit.message, '[skip ci]') == false
         run: |
           echo "This is a line of text" >> example.txt
 
       - name: Commit changes
+        if: contains(github.event.head_commit.message, '[skip ci]') == false
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add example.txt
-          git commit -m "Add line of text to example.txt"
+          git commit -m "Add line of text to example.txt [skip ci]"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
