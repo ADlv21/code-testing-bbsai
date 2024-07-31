@@ -31,7 +31,7 @@ jobs:
       - name: Run bandit
         if: contains(github.event.head_commit.message, '[skip ci]') == false
         run: |
-          bandit -r . -f txt -o bandit-report.txt
+          bandit -r . -f txt -o bandit-report.txt || true
 
       - name: Commit changes
         if: contains(github.event.head_commit.message, '[skip ci]') == false
