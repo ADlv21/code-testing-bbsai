@@ -17,10 +17,21 @@ jobs:
         id: last-commit
         run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
 
-      - name: Write to file
+      - name: Install Python dependencies
         if: contains(github.event.head_commit.message, '[skip ci]') == false
         run: |
-          echo "This is a line of text" >> example.txt
+          python -m pip install --upgrade pip
+          pip install pylint bandit
+
+      - name: Run pylint
+        if: contains(github.event.head_commit.message, '[skip ci]') == false
+        run: |
+          pylint **/*.py > pylint-report.txt || true
+
+      - name: Run bandit
+        if: contains(github.event.head_commit.message, '[skip ci]') == false
+        run: |
+          bandit -r . -f txt -o bandit-report.txt
 
       - name: Commit changes
         if: contains(github.event.head_commit.message, '[skip ci]') == false
