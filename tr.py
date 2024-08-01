@@ -126,7 +126,7 @@ def main(directory, ignore_folders):
                 print(f"  Function: {func_name}, Count: {len(lines)}")
                 print(f"    Lines: {', '.join(map(str, lines))}")
     
-    print(f"\nTotal try-except blocks across all files: {total_try_excepts}")
+    print(f"\nTotal try-except blocks across all python files: {total_try_excepts}")
 
     output_file = "try_except_summary.xlsx"
     create_excel_report(data, output_file)
