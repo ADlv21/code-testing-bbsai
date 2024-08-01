@@ -53,12 +53,18 @@ test_crypto_utils.py:17:0: C0116: Missing function or method docstring (missing-
 test_crypto_utils.py:24:0: C0116: Missing function or method docstring (missing-function-docstring)
 test_crypto_utils.py:29:0: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module main
-dev/main.py:2:0: C0304: Final newline missing (missing-final-newline)
+dev/main.py:5:0: C0304: Final newline missing (missing-final-newline)
 dev/main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 dev/main.py:1:0: C0116: Missing function or method docstring (missing-function-docstring)
+dev/main.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module code-testing-bbsai.main
+main.py:5:0: C0304: Final newline missing (missing-final-newline)
+main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+main.py:1:0: C0116: Missing function or method docstring (missing-function-docstring)
+main.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module code-testing-bbsai
 __init__.py:1:0: C0103: Module name "code-testing-bbsai" doesn't conform to snake_case naming style (invalid-name)
 
 -----------------------------------
-Your code has been rated at 5.87/10
+Your code has been rated at 5.75/10
 
